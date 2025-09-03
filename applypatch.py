@@ -48,7 +48,8 @@ patches64 = {
 'bin/win64/shaderapidx9.dll': [
 #    [('480f4ec1c7', 0), '90909090'], # four hardware lights          (This signature has completely changed and I have no idea how to fix it, so we're disabling it for now -CR)
     [('4833cce8????03004881c448', 0), '85c0750466b80400'], # zero sized buffer
-    [('4883ec084c', 0), '31c0c3'] # shader constants
+    [('4883ec084c', 0), '31c0c3'], # shader constants
+    [('4885db75??498b4500', 3), 'eb'] # bypass invalid vertex format Error() (skip crash)
 ],
 'bin/win64/client.dll': [
     [('4883ec480f1022', 0), '31c0c3'], # c_frustumcull
