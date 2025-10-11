@@ -36,15 +36,6 @@ patches32 = {
 
 # Incomplete Garry's Mod 64bit patches
 patches64 = {
-'bin/win64/engine.dll': [
-    [('4883ec480f10', 0), '31c0c3'], # c_frustumcull, uses sse instructions in 64bit
-    [('753cf30f10', 0), 'eb'], # brush entity backfaces
-    [('7e52448bd3', 0), 'eb'], # world backfaces (somewhat broken, check sort list size?)                           (FIX THIS ONE)
-    [('753c498b4204', 0), 'eb'], # world backfaces
-    [('ff90????????85c0742b', 0), 'b80200000090'], # Mod_LoadLighting HDR
-    [('ff90????????85c00f84fa000000', 0), 'b80200000090'], # Mod_LoadWorldlights HDR
-    [('4883ec48803d??????????48', 0), '31c0c3'], # R_CullNode
-],
 'bin/win64/shaderapidx9.dll': [
 #    [('480f4ec1c7', 0), '90909090'], # four hardware lights          (This signature has completely changed and I have no idea how to fix it, so we're disabling it for now -CR)
     [('4833cce8????03004881c448', 0), '85c0750466b80400'], # zero sized buffer
@@ -52,14 +43,11 @@ patches64 = {
     [('4885db75??498b4500', 3), 'eb'] # bypass invalid vertex format Error() // ty rubat :((((
 ],
 'bin/win64/client.dll': [
-    [('4883ec480f1022', 0), '31c0c3'], # c_frustumcull
-    [('0fb68154', 0), 'b001c3'], # r_forcenovis [getter]
+#    [('4883ec480f1022', 0), '31c0c3'], # c_frustumcull
+#    [('0fb68154', 0), 'b001c3'], # r_forcenovis [getter]
     # Redirect occlusion proxy textures to a harmless one to avoid spew
     [('656e67696e652f6f63636c7573696f6e70726f787900', 0, '766775692f77686974650000000000000000000000')], # "engine/occlusionproxy\x00" -> "vgui/white\x00" (padded)
     [('656e67696e652f6f63636c7573696f6e70726f78795f636f756e746472617700', 0, '766775692f7768697465000000000000000000000000000000000000000000')] # "engine/occlusionproxy_countdraw\x00" -> "vgui/white\x00" (padded)
-],
-'bin/datacache.dll': [
-    [('647838302e767478', 0), '647839302e767478'], # force load dx9 vtx
 ],
 'bin/win64/materialsystem.dll': [
     [('f77c24683bc10f4fc1488b8c24300100004833cce8????04004881c448010000', 0), '448b4424684585c0740341f7f839c80f4fc14881c448010000c3'], # zero sized buffer protection
